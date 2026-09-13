@@ -34,13 +34,13 @@ public class ArrayList<T> implements List<T> {
 
     @Override
     public void add(T value, int index) {
-        if (size == elements.length) {
-            grow();
-        }
         if (index > size || index < 0) {
             throw new ArrayListIndexOutOfBoundsException(
                     "Index " + index + " is out of bounds for size " + size
             );
+        }
+        if (size == elements.length) {
+            grow();
         }
         for (int i = size - 1; i >= index; i--) {
             elements[i + 1] = elements[i];
@@ -72,7 +72,7 @@ public class ArrayList<T> implements List<T> {
     @Override
     public T remove(int index) {
         checkIndex(index);
-        final T removeElement = (T)elements[index];
+        final T removeElement = (T) elements[index];
         for (int i = index; i < size - 1; i++) {
             elements[i] = elements[i + 1];
         }
