@@ -17,7 +17,9 @@ public class ArrayList<T> implements List<T> {
 
     private void checkIndex(int index) {
         if (index >= size || index < 0) {
-            throw new ArrayListIndexOutOfBoundsException(  "Index " + index + " is out of bounds for size " + size);
+            throw new ArrayListIndexOutOfBoundsException(
+                    "Index " + index + " is out of bounds for size " + size
+            );
         }
     }
 
@@ -36,7 +38,9 @@ public class ArrayList<T> implements List<T> {
             grow();
         }
         if (index > size || index < 0) {
-            throw new ArrayListIndexOutOfBoundsException("Index " + index + " is out of bounds for size " + size);
+            throw new ArrayListIndexOutOfBoundsException(
+                    "Index " + index + " is out of bounds for size " + size
+            );
         }
         for (int i = size - 1; i >= index; i--) {
             elements[i + 1] = elements[i];
